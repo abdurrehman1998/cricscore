@@ -1,0 +1,61 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to CricScore</h1>
+  </div>
+</div>
+<div class="d-flex justify-content-center align-items-center">
+
+  <div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          id="signIn-tab"
+          data-toggle="tab"
+          href="#signIn"
+          role="tab"
+          aria-controls="signIn"
+          aria-selected="true"
+          >Sign In</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="signUp-tab"
+          data-toggle="tab"
+          href="#signUp"
+          role="tab"
+          aria-controls="signUp"
+          aria-selected="false"
+          >Sign Up</a
+        >
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="signIn"
+        role="tabpanel"
+        aria-labelledby="signIn-tab"
+      >
+        <app-sign-in></app-sign-in>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="signUp"
+        role="tabpanel"
+        aria-labelledby="signUp-tab"
+      >
+        <app-sign-up></app-sign-up>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <app-footer></app-footer>
+  </div>
+
+</div>
+

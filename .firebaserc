@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cricscore-3deb0": {
+      "hosting": {
+        "cricscore": [
+          "cricscore-3deb0"
+        ]
+      }
+    }
+  }
+}
