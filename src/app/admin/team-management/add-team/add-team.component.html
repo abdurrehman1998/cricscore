@@ -1,0 +1,12 @@
+<form [formGroup]="addTeamFormGroup" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="teamName">{{ 'TEAM_NAME' | translate}}</label>
+      <input type="text" formControlName="teamName" class="form-control" id="teamName" placeholder="Team Name"  [ngClass]="{'is-invalid': displayMessage.teamName }">
+      <span class="invalid-feedback">
+        {{displayMessage.teamName}}
+      </span>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary offset-5" [disabled]="!addTeamFormGroup.valid" >Save</button>
+</form>

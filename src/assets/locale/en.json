@@ -3,5 +3,7 @@
   "EMAIL": "Email",
   "PASSWORD":"Password",
   "SIGN_IN":"Sign In",
-  "SIGN_UP":"Sign Up"
+  "SIGN_UP":"Sign Up",
+  "SIGN_OUT":"Sign Out",
+  "TEAM_NAME":"Team Name"
 }

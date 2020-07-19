@@ -10,7 +10,6 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { SigninComponent } from "./signin/signin.component";
-import { HomeComponent } from "./home/home.component";
 import { AngularFireAuthGuardModule } from "@angular/fire/auth-guard";
 import { FooterComponent } from "./footer/footer.component";
 import { SharedModule } from "./shared/shared.module";
@@ -27,7 +26,6 @@ export function createTranslateLoader(http: HttpClient) {
     SignupComponent,
     WelcomeComponent,
     SigninComponent,
-    HomeComponent,
     FooterComponent,
   ],
   imports: [

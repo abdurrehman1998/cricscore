@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">CricScore</a>
+
+  <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo03">
+    <div *ngIf="auth.user | async as user" class="ml-md-4">
+      <strong> Hello {{ user.displayName||user.email }}!</strong>
+    </div>
+    <button class="btn btn-outline-success" type="button" (click)="signOut()">
+      {{ 'SIGN_OUT' | translate}}
+    </button>
+  </div>
+</nav>
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-sm-2 sidebar bg-light">
+      <div class="sidebar-sticky">
+        <a class="nav-item nav-link active" href="#">Dashboard <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" [routerLink]="['../teams']">Team Management</a>
+        <a class="nav-item nav-link" href="#">Feature2</a>
+      </div>
+    </nav>
+
+
+    <main role="main" class="col-sm-10 col-lg-10 main-content mt-2 pl-3">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
