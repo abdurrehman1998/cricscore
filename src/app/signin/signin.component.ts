@@ -16,6 +16,7 @@ import { Router } from "@angular/router";
 import { Observable, fromEvent, merge } from "rxjs";
 import { GenericValidator } from "../shared/generic-validator";
 import { debounceTime } from "rxjs/operators";
+import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "app-sign-in",
   templateUrl: "./signin.component.html",
@@ -32,24 +33,28 @@ export class SigninComponent implements OnInit, AfterViewInit {
   constructor(
     private fb: FormBuilder,
     public auth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private translate: TranslateService
   ) {
     // Defines all of the validation messages for the form.
     // These could instead be retrieved from a file or database.
     this.validationMessages = {
       email: {
-        required: "Email is required.",
-        email: "Not an email",
+        required: "EMAIL_REQUIRED",
+        email: "Email_FORMAT",
       },
       password: {
-        required: "Password is required.",
-        minlength: "Password must be at least 6 characters.",
+        required: "PASSWORD_REQUIRED",
+        minlength: "PASSWORD_MIN_LENGTH",
       },
     };
 
     // Define an instance of the validator for use with this form,
     // passing in this form's set of validation messages.
-    this.genericValidator = new GenericValidator(this.validationMessages);
+    this.genericValidator = new GenericValidator(
+      this.validationMessages,
+      this.translate
+    );
   }
 
   ngOnInit() {
@@ -78,10 +83,14 @@ export class SigninComponent implements OnInit, AfterViewInit {
       });
   }
   onSubmit() {
+    console.log("submitted");
     const { email, password } = this.signInFormGroup.value;
     this.auth.auth
       .signInWithEmailAndPassword(email, password)
-      .then((res) => this.router.navigate([""]))
+      .then((res) => {
+        console.log(res);
+        this.router.navigate(["/dashboard"]);
+      })
       .catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;

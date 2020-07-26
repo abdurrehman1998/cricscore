@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "cricscore",
-      "public": "dist/cricscore",
+      "target": "material-dashboard-angular",
+      "public": "dist",
       "ignore": [
         "firebase.json",
         "**/.*",

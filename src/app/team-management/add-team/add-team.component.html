@@ -1,0 +1,83 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">{{'ADD_TEAM_FORM_HEADER' | translate}}</h4>
+            <p class="card-category">{{'ADD_TEAM_FORM_SUB_HEADER' | translate}}</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="addTeamFormGroup">
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field >
+                    <mat-label>{{'TEAM_NAME'|translate}}</mat-label>
+                    <input matInput  formControlName="teamName">
+                    <mat-error *ngIf="displayMessage.teamName">
+                      {{displayMessage.teamName}}
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-md-6">
+                  <mat-form-field>
+                    <mat-label>{{'TEAM_FORMATS'|translate}}</mat-label>
+                    <mat-select multiple formControlName="format">
+                      <mat-option value="1">One Day</mat-option>
+                      <mat-option value="2">Test</mat-option>
+                      <mat-option value="3">T 20</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="displayMessage.format">
+                      {{displayMessage.format}}
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field>
+                    <mat-label>{{'TEAM_CITY'|translate}}</mat-label>
+                    <mat-select formControlName="city">
+                      <mat-option value="1">Faisalabad</mat-option>
+                      <mat-option value="2">Rawalpindi</mat-option>
+                      <mat-option value="3">Islamabad</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="displayMessage.city">
+                      {{displayMessage.city}}
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+
+
+              </div>
+
+              <button mat-raised-button type="submit" class="btn btn-danger pull-right">{{'SAVE' | translate}}</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="javascript:void(0)">
+              <img class="img" src="./assets/img/faces/marc.jpg" />
+            </a>
+          </div>
+          <div class="card-body">
+            <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+            <h4 class="card-title">Alec Thompson</h4>
+            <p class="card-description">
+              Don't be scared of the truth because we need to restart the human foundation in truth And I love you like
+              Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+            </p>
+            <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@
   "targets": {
     "cricscore-3deb0": {
       "hosting": {
-        "cricscore": [
+        "material-dashboard-angular": [
           "cricscore-3deb0"
         ]
       }

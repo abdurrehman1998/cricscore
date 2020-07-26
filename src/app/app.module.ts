@@ -1,35 +1,36 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-import { AppComponent } from "./app.component";
-import { AngularFireModule } from "@angular/fire";
-import { environment } from "src/environments/environment";
-import { SignupComponent } from "./signup/signup.component";
-import { AppRoutingModule } from "./app-routing.module";
-import { ReactiveFormsModule } from "@angular/forms";
-import { AngularFireAuthModule } from "@angular/fire/auth";
-import { WelcomeComponent } from "./welcome/welcome.component";
-import { SigninComponent } from "./signin/signin.component";
+
+import { AppRoutingModule } from './app.routing';
+import { ComponentsModule } from './components/components.module';
+
+import { AppComponent } from './app.component';
+import {SigninComponent} from './signin/signin.component';
+import {SignupComponent} from './signup/signup.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { HttpClientModule, HttpClient, } from '@angular/common/http';
+import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule } from "@angular/fire/auth-guard";
-import { FooterComponent } from "./footer/footer.component";
-import { SharedModule } from "./shared/shared.module";
-import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import {LOCALE} from "../app/shared/constants"
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { environment } from "../environments/environment";
+import { SharedModule } from './shared/shared.module';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/locale/", ".json");
 }
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignupComponent,
-    WelcomeComponent,
-    SigninComponent,
-    FooterComponent,
-  ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    ComponentsModule,
+    RouterModule,
+    AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -41,12 +42,17 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireAuthGuardModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    SharedModule,
+    AngularFireAuthGuardModule
+  ],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent,
+    WelcomeComponent,
+    SigninComponent,
+    SignupComponent
+
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,5 +1,5 @@
 import { FormGroup } from '@angular/forms';
-
+import { TranslateService } from "@ngx-translate/core";
 // Generic validator for Reactive forms
 // Implemented as a class, not a service, so it can retain state for multiple forms.
 export class GenericValidator {
@@ -14,7 +14,7 @@ export class GenericValidator {
   //     validationRuleName1: 'Validation Message.',
   //     validationRuleName2: 'Validation Message.'
   // }
-  constructor(private validationMessages: { [key: string]: { [key: string]: string } }) {
+  constructor(private validationMessages: { [key: string]: { [key: string]: string } },private translate?:TranslateService) {
 
   }
 
@@ -39,7 +39,10 @@ export class GenericValidator {
             if ((c.dirty || c.touched) && c.errors) {
               Object.keys(c.errors).map(messageKey => {
                 if (this.validationMessages[controlKey][messageKey]) {
-                  messages[controlKey] += this.validationMessages[controlKey][messageKey] + ' ';
+                  console.log(this.validationMessages[controlKey][messageKey])
+                  this.translate.get(this.validationMessages[controlKey][messageKey]).subscribe((res: string) => {
+                    messages[controlKey] += res + ' ';
+                  });
                 }
               });
             }

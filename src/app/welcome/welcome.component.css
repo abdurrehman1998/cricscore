@@ -1,0 +1,8 @@
+.nav-tabs .nav-item .nav-link.active {
+  background-color: #3F51B5;
+  transition: 0.3s background-color 0.2s;
+}
+.nav-tabs .nav-item .nav-link {
+  background-color: #c0549c2c;
+  transition: 0.3s background-color 0.2s;
+}
